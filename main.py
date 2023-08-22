@@ -20,7 +20,9 @@ async def start_bot(bot: Bot):
 
 
 async def start():
-    logging.basicConfig(level=logging.INFO)
+    #logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
     bot = Bot(token=TOKEN, parse_mode='HTML')
     dp = Dispatcher()
     dp.startup.register(start_bot)

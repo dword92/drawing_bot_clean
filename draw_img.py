@@ -4,7 +4,11 @@ import PILasOPENCV as ImageFont2
 from PIL import ImageFont
 from core.processing import genering
 import core.basic
+import logging
 
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 roboto_bold = 'font/roboto_bold.ttf'
 roboto_regular = 'font/roboto_regular.ttf'
 
@@ -15,6 +19,9 @@ def image_draw(summa, name, surname_initial, phone):
     id_transaction, file_name, status_bar_time, date_time, my_name = genering()
     im = Image.open("source/source2.jpg")
     draw = ImageDraw.Draw(im)
+
+    logger.info("Opened image source2.jpg")
+
     font = ImageFont2.truetype(roboto_bold, 32)
     draw.text((55, 40), status_bar_time, font=font, fill=(72, 72, 72))
     font = ImageFont2.truetype(roboto_bold, 68)
@@ -38,4 +45,7 @@ def image_draw(summa, name, surname_initial, phone):
     draw.text((736, 1212), str(id_transaction), font=font, fill=(72, 72, 72))
     output_filename = f'{completed_path}{file_name}.jpg'
     im.save(output_filename)
+
+    logger.info("Image saved successfully: %s", output_filename)
+
     core.basic.put = output_filename

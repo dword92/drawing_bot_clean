@@ -4,6 +4,7 @@ from draw_img import image_draw
 from core.processing import format_numbers
 from core.db import add_user_to_database, increment_request_count
 from core.save_request import save_request_to_file
+import logging
 import os
 import asyncio
 
@@ -18,6 +19,7 @@ async def get_start(message: Message, bot: Bot):
 
 
 async def get_message(message: Message, bot: Bot):
+    logging.basicConfig(level=logging.DEBUG)
     parts = message.text.split()
 
     if len(parts) != 4:
