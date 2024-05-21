@@ -6,8 +6,8 @@ import asyncio
 import logging
 from core.db import close_database_connection
 
-TOKEN = '5970330111:AAFTT88xlI1zli4JBjqr1Lav1aePwZfcDTE'
-ADMIN_ID = '369780034'
+TOKEN = ''
+ADMIN_ID = ''
 
 
 async def start_bot(bot: Bot):
